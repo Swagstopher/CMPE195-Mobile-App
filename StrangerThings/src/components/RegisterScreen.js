@@ -67,7 +67,12 @@ export default class RegisterScreen extends React.Component {
               'Content-Type': 'application/x-www-form-urlencoded'
           }
         }).then(res => res.json())
-.then(response => console.log('Success:', Alert.alert(JSON.stringify(response))))
+.then(response => {
+    Alert.alert("User Created!");
+  this.props.screen('login');
+}
+
+)
     } else {
       console.log("Didn't Work");
     }
@@ -114,7 +119,7 @@ export default class RegisterScreen extends React.Component {
         />
         <LoginButton onPress={this.handleRegister} color="white" title="Register"/>
                 <OrText>Or</OrText>
-        <LoginButton color="white" title="Login"/>
+        <LoginButton onPress={() => this.props.screen('login')} color="white" title="Login"/>
       </Screen>
     );
   }

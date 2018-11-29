@@ -55,6 +55,7 @@ export default class LoginScreen extends React.Component {
       formData.append("email", this.state.email);
       formData.append("password", this.state.password);
 
+      const that = this;
 
       fetch("http://strangerthingz-backend.herokuapp.com/signinUser",
         {
@@ -64,7 +65,10 @@ export default class LoginScreen extends React.Component {
               'Content-Type': 'application/x-www-form-urlencoded'
           }
         }).then(res => res.json())
-.then(response => console.log('Success:', Alert.alert(JSON.stringify(response))))
+.then(response => {
+          that.props.screen('main');
+}
+  )
     } else {
       console.log("Didn't Work");
     }
@@ -90,7 +94,7 @@ export default class LoginScreen extends React.Component {
         />
         <LoginButton onPress={this.handleLogin} color="white" title="Login"/>
                 <OrText>Or</OrText>
-        <LoginButton color="white" title="Register"/>
+        <LoginButton onPress={() => this.props.screen('register')} color="white" title="Register"/>
       </Screen>
     );
   }
