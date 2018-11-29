@@ -11,6 +11,7 @@ Stranger Thangz, is a mobile application that focuses on its users to connect wi
 
 ## Landing Page
 
+![alt text](https://raw.githubusercontent.com/Swagstopher/CMPE195-Mobile-App/master/img.png)
 
 ## Downloads
 
